@@ -49,13 +49,11 @@ app.post("/compose", function(req, res){
 app.get("/posts/:titlepost", function(req, res){
   posts.forEach(function(post){
     if ( _.lowerCase(req.params.titlepost) === _.lowerCase(post.title)) {
-      console.log("Match found!");
-    } else {
-      console.log("Not a match!");
-    }
+      res.render("post", {title: post.title, content: post.content});
+    };
   });
-  res.redirect("/");
 });
+
 
 
 
